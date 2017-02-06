@@ -4,7 +4,7 @@ package Telegram;
  * Created by Makentoshe on 04.02.2017.
  */
 
-
+import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -22,9 +22,11 @@ public class Shuvi_Telegram extends TelegramLongPollingBot{
     //Данные групп
     private Map<Long, String> groupData= new HashMap<>();
 
+    //File dataPath = new File("H:\\Projects\\Java\\Shuvi\\data");
+
     private String faqmsg = "1. Создавать надо группу, а не канал \n" +
             "2. Из веба создать группу нельзя \n" +
-            "3. Когда создаешь, надо кого-то пригласить. Можно приглашать @PollBot/@MBFCP_Bot\n" +
+            "3. Когда создаешь, надо кого-то пригласить. Можно приглашать @MBFCP_Bot\n" +
             "4. Лучше сразу апдейтить до супергруппы, потому что меняется инвайт линк\n" +
             "5. Админов можно назначать правой кнопкой мыши (без создания идентификатора)";
 
@@ -81,7 +83,18 @@ public class Shuvi_Telegram extends TelegramLongPollingBot{
 
     @Override
     public String getBotToken() {
-        return "322255735:AAHP35pvK_gkje0XS2jCwLiurthXg7jWSRY";
+
+            String token = "";
+
+            try {
+                Scanner scan = new Scanner(new File("data/Token.txt"));
+                while (scan.hasNext())
+                    token += scan.nextLine();
+                scan.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return token;
     }
 
     @Override
@@ -231,25 +244,4 @@ public class Shuvi_Telegram extends TelegramLongPollingBot{
         groupData.put(groupId, data);
     }
 }
-
-/*
-class Pair<I, P> {
-    private final I id;
-    private final P pass;
-
-    Pair(I id, P pass){
-        super();
-        this.id = id;
-        this.pass = pass;
-    }
-
-    I getFirst() {
-        return id;
-    }
-    P getSecond() {
-        return pass;
-    }
-
-}
-*/
 
