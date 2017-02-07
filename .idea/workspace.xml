@@ -7,14 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54f1f2e-9bf6-4072-b726-e993085b2fb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/telegrambots_2_4_4_4_jar_with_dependencies.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/FileWriter.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/FileWriter2.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shuvi/Telegram/DataStorage.class" afterPath="$PROJECT_DIR$/out/production/Shuvi/Telegram/DataStorage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shuvi/Telegram/Shuvi_Telegram.class" afterPath="$PROJECT_DIR$/out/production/Shuvi/Telegram/Shuvi_Telegram.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shuvi/Telegram/WorkInFile.class" afterPath="$PROJECT_DIR$/out/production/Shuvi/Telegram/WorkInFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shuvi.iml" afterPath="$PROJECT_DIR$/Shuvi.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Telegram/DataStorage.java" afterPath="$PROJECT_DIR$/src/Telegram/DataStorage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java" afterPath="$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Telegram/WorkInFile.java" afterPath="$PROJECT_DIR$/src/Telegram/WorkInFile.java" />
@@ -38,17 +30,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Shuvi_Telegram.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Shuvi_Telegram.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+            <state relative-caret-position="119">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3210#3211#0" expanded="true" />
-                <element signature="e#3275#3276#0" expanded="true" />
+                <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+                <element signature="class#InfoGroupMap#0" expanded="false" />
+                <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+                <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+                <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
                 <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-                <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
                 <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
               </folding>
             </state>
@@ -58,8 +51,8 @@
       <file leaf-file-name="WorkInFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Telegram/WorkInFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            <state relative-caret-position="362">
+              <caret line="33" column="60" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,16 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataStorage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataStorage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Telegram/DataStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#DataStorage#0" expanded="false" />
+                <element signature="docComment;method#getGroupInfoFromData#0;class#DataStorage#0" expanded="false" />
+                <element signature="method#getGroupInfoFromData#0;class#DataStorage#0" expanded="false" />
+                <element signature="docComment;method#setGroupInfoToData#0;class#DataStorage#0" expanded="false" />
+                <element signature="method#setGroupInfoToData#0;class#DataStorage#0" expanded="false" />
+                <element signature="docComment;method#setGroupInfo#0;class#DataStorage#0" expanded="false" />
+                <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
                 <element signature="method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
-                <marker date="1486411065687" expanded="false" signature="4344:4391" ph="{...}" />
+                <element signature="docComment;method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+                <element signature="method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -102,9 +102,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java" />
         <option value="$PROJECT_DIR$/src/Telegram/WorkInFile.java" />
         <option value="$PROJECT_DIR$/src/Telegram/DataStorage.java" />
+        <option value="$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java" />
       </list>
     </option>
   </component>
@@ -139,8 +139,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -211,7 +209,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -581,14 +581,61 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
+          <folding>
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Telegram/WorkInFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Telegram/DataStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfoFromData#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfoFromData#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#setGroupInfoToData#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#setGroupInfoToData#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#setGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
@@ -609,11 +656,12 @@
         <state relative-caret-position="425">
           <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
@@ -634,11 +682,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
@@ -649,11 +698,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
@@ -664,11 +714,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
             <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
@@ -680,13 +731,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/telegrambots-2.4.4.4-jar-with-dependencies.jar!/org/telegram/telegrambots/api/methods/send/SendMessage.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="204">
           <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding />
         </state>
@@ -694,38 +744,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Telegram/WorkInFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state relative-caret-position="362">
+          <caret line="33" column="60" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="102" column="16" selection-start-line="102" selection-start-column="16" selection-end-line="102" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
-            <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#removeDataFromMap#0;class#Shuvi_Telegram#0" expanded="false" />
-            <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Telegram/DataStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfoFromData#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfoFromData#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#setGroupInfoToData#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#setGroupInfoToData#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#setGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
             <element signature="method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
-            <marker date="1486411065687" expanded="false" signature="4344:4391" ph="{...}" />
+            <element signature="docComment;method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Telegram/Shuvi_Telegram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="method#main#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#sendMsg#0;class#Shuvi_Telegram#0" expanded="false" />
+            <element signature="method#getGroupData#0;class#Shuvi_Telegram#0" expanded="false" />
           </folding>
         </state>
       </provider>

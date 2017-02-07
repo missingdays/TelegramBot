@@ -16,16 +16,25 @@ import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
+
+/**
+ * Serializable class for saving data in binary code.
+ */
+class InfoGroupMap implements Serializable {
+
+    Map<String, String> infoGroup = new HashMap<>();
+
+    InfoGroupMap(Map<String, String> map) {
+        infoGroup = map;
+    }
+}
+
 public class Shuvi_Telegram extends TelegramLongPollingBot {
-
-    private DataStorage ds = new DataStorage();
-
-    //Данные по всем группам
-    private Map<String, String> infoGroup = new HashMap<>();
+    Map<String, String> infoGroup = new HashMap<>();
     //Данные групп
     private Map<Long, String> groupData = new HashMap<>();
 
-
+    private DataStorage ds = new DataStorage();
 
     private String faqmsg = "1. Создавать надо группу, а не канал \n" +
             "2. Из веба создать группу нельзя \n" +
@@ -155,32 +164,35 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
                 if (comType[0].equals("/regnewgroup")) {
                     //удаление вызова команды
                     String syntaxis = text.replaceAll(comType[0] + " ", "");
-
                     //разделение параметров запятой
                     String[] parameters = syntaxis.split(", ");
-
-
-
                     //Загрузка БД
                     infoGroup = ds.getGroupInfoFromData();
-
                     //Процесс записи
                     ds.setGroupInfo(infoGroup, parameters[0], parameters[1]);
-
                     //Запись в БД
                     ds.setGroupInfoToData(infoGroup);
                     log.info("New group was register: " + parameters[0]);
-
                     sendMsg(message, "Была создана группа " + parameters[0] + '.');
                 }
 
                 if (comType[0].equals("/removegroup")) {
                     //удаление вызова команды
-                    String parameter = text.replaceAll(comType[0] + " ", "");
+                    String param = text.replaceAll(comType[0] + " ", "");
+                    //Загрузка БД
+                    infoGroup = ds.getGroupInfoFromData();
                     //удаление группы
-                    String groupname = removeDataFromMap(infoGroup, parameter);
-                    log.info("Group " + groupname + " was remove");
-                    sendMsg(message, "Группа " + groupname + " была удалена из списка.");
+                    String groupname = ds.removeGroupInfo(infoGroup, param);
+                    //Запись в БД
+                    ds.setGroupInfoToData(infoGroup);
+
+                    if (groupname != null) {
+                        log.info("Group " + groupname + " was remove");
+                        sendMsg(message, "Группа " + groupname + " была удалена из списка.");
+                    } else {
+                        log.info("Group not found.");
+                        sendMsg(message, "Group not found.");
+                    }
                 }
 
                 if (comType[0].equals("/setgd@MBFCP_Bot")) {
@@ -216,30 +228,6 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
         }
     }
 
-    //данные удаляются, если найден ключ или значение.
-    private String removeDataFromMap(Map<String, String> hashMap, String parameter) {
-        String s;
-        //Удаление по ключу
-        if (hashMap.containsKey(parameter)) {
-            s = parameter;
-            hashMap.remove(parameter);
-            return s;
-        }
-        //Удалене по значению
-        //проходимся по хешу
-        for (Map.Entry entry : hashMap.entrySet()) {
-            //если найдено значение равное параметру
-            if (entry.getValue().equals(parameter)) {
-                //находим ключ
-                s = entry.getKey().toString();
-                // и удаляем
-                hashMap.remove(entry.getKey());
-                return s;
-            }
-        }
-        return "Nothing";
-    }
-
     private String getGroupData(long groupId) {
 
         for (Map.Entry entry : groupData.entrySet()) {
@@ -254,4 +242,5 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
         groupData.put(groupId, data);
     }
 }
+
 
