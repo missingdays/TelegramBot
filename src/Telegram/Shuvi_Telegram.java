@@ -21,7 +21,6 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
  * Serializable class for saving data in binary code.
  */
 class InfoGroupMap implements Serializable {
-
     Map<String, String> infoGroup = new HashMap<>();
 
     InfoGroupMap(Map<String, String> map) {
@@ -29,47 +28,33 @@ class InfoGroupMap implements Serializable {
     }
 }
 
+/**
+ * Serializable class for saving data in binary code.
+ */
+class GroupData implements Serializable {
+    Map<Long, String> groupData = new HashMap<>();
+
+    GroupData(Map<Long, String> map){
+        groupData = map;
+    }
+}
+
+/**
+ * Serializable class for saving data in binary code.
+ */
+class Token implements Serializable {
+    String token = new String();
+
+    Token(String token) {
+        this.token = token;
+    }
+}
+
 public class Shuvi_Telegram extends TelegramLongPollingBot {
-    Map<String, String> infoGroup = new HashMap<>();
-    //Данные групп
+    private Map<String, String> infoGroup = new HashMap<>();
     private Map<Long, String> groupData = new HashMap<>();
 
     private DataStorage ds = new DataStorage();
-
-    private String faqmsg = "1. Создавать надо группу, а не канал \n" +
-            "2. Из веба создать группу нельзя \n" +
-            "3. Когда создаешь, надо кого-то пригласить. Можно приглашать @MBFCP_Bot\n" +
-            "4. Лучше сразу апдейтить до супергруппы, потому что меняется инвайт линк\n" +
-            "5. Админов можно назначать правой кнопкой мыши (без создания идентификатора)";
-
-    private String rngmsg = "Синтаксис: /regnewgroup название группы, ссылка на конфу.\n" +
-            "Пример: /regnewgroup Японский язык, https://t.me/joinchat/AAAAAEJlNDlO63fiUtnrvQ\n";
-
-    private String rgmsg = "Синтаксис: /removegroup название группы или ссылка на конфу.\n" +
-            "Пример: /removegroup Японский язык \n" +
-            "Пример: /removegroup https://t.me/joinchat/AAAAAEJlNDlO63fiUtnrvQ\n";
-
-    private String hlpmsg = "Command List:\n" +
-            "/info - информация обо всех доступных группах на данный момент\n" +
-            "/faq - информация о создании групп\n" +
-            "/regnewgroup - записать группу\n" +
-            "/removegroup - удалить группу\n" +
-            "/setgd - добавить данные группы\n" +
-            "/remgd - cтереть данные группы\n" +
-            "/getgd - показать данные группы\n" +
-            "Для вывода данных команды, введите её без параметров. Пример: /removegroup";
-
-    private String setgdmsg = "Синтаксис: /setgd информация.\n" +
-            "Пример: /setgd Книги для ознакомления:\n" +
-            "Книга 1, Книга 2, Книга3..." +
-            "Закрепляет записанную информацию";
-
-    private String getgdmsg = "Синтаксис: /getgd .\n" +
-            "Выводит закрепленную в группе информацию.";
-
-    private String remgdmsg = "Синтаксис: /remgd .\n" +
-            "Удаляет закрепленную в группе информацию.";
-
 
     private static Logger log = Logger.getLogger(Shuvi_Telegram.class.getName());
 
@@ -94,8 +79,17 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        String token = null;
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/Token.shuvi"));
+            Token token = (Token)ois.readObject();
+            return token.token;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        //wtf?
+        return null;
 
+       /* String token = null;
         try {
             Scanner scan = new Scanner(new File("data/Token.txt"));
             while (scan.hasNext())
@@ -106,6 +100,7 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
         }
 
         return token.substring(1);
+    */
     }
 
     @Override
@@ -124,67 +119,74 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
                 break;
 //-------------------------------------------
             case "/help":
-                sendMsg(message, hlpmsg);
+                sendMsg(message, ds.hlpmsg);
                 break;
             case "/help@MBFCP_Bot":
-                sendMsg(message, hlpmsg);
+                sendMsg(message, ds.hlpmsg);
                 break;
 //-------------------------------------------
-            case "/regnewgroup":
-                sendMsg(message, rngmsg);
+            case "/rng":
+                sendMsg(message, ds.rngmsg);
                 break;
-            case "/regnewgroup@MBFCP_Bot":
-                sendMsg(message, rngmsg);
+            case "/rng@MBFCP_Bot":
+                sendMsg(message, ds.rngmsg);
                 break;
 //-------------------------------------------
-            case "/removegroup":
-                sendMsg(message, rgmsg);
+            case "/rg":
+                sendMsg(message, ds.rgmsg);
                 break;
-            case "/removegroup@MBFCP_Bot":
-                sendMsg(message, rgmsg);
+            case "/rg@MBFCP_Bot":
+                sendMsg(message, ds.rgmsg);
                 break;
 //-------------------------------------------
             case "/faq":
-                sendMsg(message, faqmsg);
+                sendMsg(message, ds.faqmsg);
                 break;
             case "/faq@MBFCP_Bot":
-                sendMsg(message, faqmsg);
+                sendMsg(message, ds.faqmsg);
                 break;
 //-------------------------------------------
-            case "/setgd":
-                sendMsg(message, setgdmsg);
+            case "/sd":
+                sendMsg(message, ds.setgdmsg);
                 break;
-            case "/setgd@MBFCP_Bot":
-                sendMsg(message, setgdmsg);
+            case "/sd@MBFCP_Bot":
+                sendMsg(message, ds.setgdmsg);
+                break;
+//-------------------------------------------
+            case "/gd":
+                sendMsg(message, ds.getgdmsg);
+                break;
+            case "/gd@MBFCP_Bot":
+                sendMsg(message, ds.getgdmsg);
                 break;
 //-------------------------------------------
             default: {
                 String[] comType = text.split(" ");
 
-                if (comType[0].equals("/regnewgroup")) {
+                if (comType[0].equals("/rng") || comType[0].equals("/rng@MBFCP_Bot")) {
                     //удаление вызова команды
                     String syntaxis = text.replaceAll(comType[0] + " ", "");
                     //разделение параметров запятой
                     String[] parameters = syntaxis.split(", ");
-                    //Загрузка БД
-                    infoGroup = ds.getGroupInfoFromData();
+                    //Загрузка данных
+                    infoGroup = ds.getGroupInfoFromFile();
                     //Процесс записи
                     ds.setGroupInfo(infoGroup, parameters[0], parameters[1]);
-                    //Запись в БД
-                    ds.setGroupInfoToData(infoGroup);
+                    //Запись
+                    ds.setGroupInfoToFile(infoGroup);
                     log.info("New group was register: " + parameters[0]);
                     sendMsg(message, "Была создана группа " + parameters[0] + '.');
                 }
 
-                if (comType[0].equals("/removegroup")) {
+                if (comType[0].equals("/rg") || comType[0].equals("/rg@MBFCP_Bot")) {
                     //удаление вызова команды
                     String param = text.replaceAll(comType[0] + " ", "");
-                    //Загрузка БД
-                    infoGroup = ds.getGroupInfoFromData();
+                    //Загрузка данных
+                    infoGroup = ds.getGroupInfoFromFile();
                     //удаление группы
                     String groupname = ds.removeGroupInfo(infoGroup, param);
-                    //Запись в БД
-                    ds.setGroupInfoToData(infoGroup);
+                    //Запись
+                    ds.setGroupInfoToFile(infoGroup);
 
                     if (groupname != null) {
                         log.info("Group " + groupname + " was remove");
@@ -195,19 +197,20 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
                     }
                 }
 
-                if (comType[0].equals("/setgd@MBFCP_Bot")) {
-                    //удаление вызова команды
+                if (comType[0].equals("/sd") || comType[0].equals("/sd@MBFCP_Bot") ) {
+                    //Удаление вызова команды
                     String data = text.replaceAll(comType[0] + " ", "");
-                    setGroupData(message.getChatId(), data);
-                    log.info("Group date was set in chat: " + message.getChatId().toString());
-                    sendMsg(message, "Successful");
+                    //Запись
+                    groupData.put(message.getChatId(), data);
+                    //Сохранение
+                    ds.setGroupDataToFile(groupData);
+                    sendMsg(message, "Done.");
                 }
 
-                if (comType[0].equals("/getgd@MBFCP_Bot")) {
-                    //удаление вызова команды
-                    String data = text.replaceAll(comType[0] + " ", "");
-                    log.info("Group date was get in chat: " + message.getChatId().toString());
-                    sendMsg(message, getGroupData(message.getChatId()));
+                if (comType[0].equals("/gd") || comType[0].equals("/gd@MBFCP_Bot")) {
+                    groupData = ds.getGroupDataFromFile();
+                    if (groupData.containsKey(message.getChatId())) sendMsg(message, groupData.get(message.getChatId()));
+                    else sendMsg(message, "Empty");
                 }
 
                 break;
@@ -226,20 +229,6 @@ public class Shuvi_Telegram extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-    }
-
-    private String getGroupData(long groupId) {
-
-        for (Map.Entry entry : groupData.entrySet()) {
-            if (entry.getKey().equals(groupId)) {
-                return entry.getValue().toString();
-            }
-        }
-        return "Empty";
-    }
-
-    private void setGroupData(long groupId, String data) {
-        groupData.put(groupId, data);
     }
 }
 
