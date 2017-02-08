@@ -73,7 +73,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Override
     public String getBotUsername() {
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/BotData.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/BotData.shuvi"));
             BotData token = (BotData)ois.readObject();
             return token.username;
         } catch (Exception e){
@@ -86,7 +86,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Override
     public String getBotToken() {
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/BotData.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/BotData.shuvi"));
             BotData bd = (BotData)ois.readObject();
             return bd.token;
         } catch (Exception e){

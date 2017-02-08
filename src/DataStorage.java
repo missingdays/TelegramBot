@@ -12,7 +12,7 @@ public class DataStorage {
      */
     Map<String, String> getGroupInfoFromFile() {
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/GroupInfo.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/GroupInfo.shuvi"));
             InfoGroupMap igm = (InfoGroupMap)ois.readObject();
             return igm.infoGroup;
         } catch (Exception e){
@@ -28,7 +28,7 @@ public class DataStorage {
      */
     void setGroupInfoToFile(Map<String, String> groupInfo) {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data/GroupInfo.shuvi"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("H:/Projects/Java/Shuvi/data/GroupInfo.shuvi"));
             InfoGroupMap igm = new InfoGroupMap(groupInfo);
             oos.writeObject(igm);
             oos.flush();
@@ -90,7 +90,7 @@ public class DataStorage {
 
     Map<Long, String> getGroupDataFromFile(){
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/GroupData.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/GroupData.shuvi"));
             GroupData gd = (GroupData) ois.readObject();
             return gd.groupData;
         } catch (Exception e){
@@ -102,7 +102,7 @@ public class DataStorage {
 
     void setGroupDataToFile(Map<Long, String> groupData) {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data/GroupData.shuvi"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("H:/Projects/Java/Shuvi/data/GroupData.shuvi"));
             GroupData gd = new GroupData(groupData);
             oos.writeObject(gd);
             oos.flush();
