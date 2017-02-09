@@ -14,6 +14,41 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+class Command {
+    String text;
+    private String botName;
+    String syntax;
+
+    Command(String text, String botName) {
+        this.text = text;
+        this.botName = botName;
+    }
+
+    /**
+     * @return -1, if (@param text) is not a command
+     *          0, if (@param text) is unknown command
+     *          else return command number, begin from 1
+     *          twice digit like 44 for command with syntax.
+     */
+    int textHandler(){
+        String[] avaliableCommands={"help", "info", "faq", "rng", "rg", "sd", "gd"};
+        if (text.charAt(0) != '/') return -1;
+        text = text.replace("/", "");
+        String[] cmd = text.split(" ");
+        for (int i = 0; i<avaliableCommands.length; i++){
+            if (cmd[0].equals(avaliableCommands[i]) || cmd[0].equals(avaliableCommands[i]+botName)){
+                if (cmd.length > 1) {
+                    syntax = text.replace(cmd[0] + " ","");
+                    System.out.println(syntax);
+                    return (i+1)*10 + (i+1);
+                }
+                return i+1;
+            }
+        }
+        return 0;
+    }
+}
+
 /**
  * Serializable class for saving data in binary code.
  */
@@ -51,8 +86,6 @@ class BotData implements Serializable {
 
 public class TelegramBot extends TelegramLongPollingBot {
 
-    private Map<String, String> infoGroup = new HashMap<>();
-    private Map<Long, String> groupData = new HashMap<>();
     private static Logger log = Logger.getLogger(TelegramBot.class.getName());
     private DataStorage ds = new DataStorage();
 
@@ -98,55 +131,33 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        String text = "";
         Message message = update.getMessage();
+        Command command;
+        if (message != null && message.hasText()) command = new Command(message.getText(), getBotUsername()); //text = message.getText();
+        else return;
 
-        if (message != null && message.hasText()) text = message.getText();
+        switch (command.textHandler()) {
+            case 1: sendMsg(message, ds.hlpmsg); break;
+            case 2: sendMsg(message, ds.getGroupInfo()); break;
+            case 3: sendMsg(message, ds.faqmsg); break;
+            case 4: sendMsg(message, ds.rngmsg); break;
+            case 5: sendMsg(message, ds.rgmsg); break;
+            case 6: sendMsg(message, ds.setgdmsg); break;
 
-        switch (text) {
-            case "/info":
-                sendMsg(message, ds.getGroupInfo());
-                break;
-            case "/info@MBFCP_Bot":
-                sendMsg(message, ds.getGroupInfo());
-                break;
-//-------------------------------------------
-            case "/help":
-                sendMsg(message, ds.hlpmsg);
-                break;
-            case "/help@MBFCP_Bot":
-                sendMsg(message, ds.hlpmsg);
-                break;
-//-------------------------------------------
-            case "/rng":
-                sendMsg(message, ds.rngmsg);
-                break;
-            case "/rng@MBFCP_Bot":
-                sendMsg(message, ds.rngmsg);
-                break;
-//-------------------------------------------
-            case "/rg":
-                sendMsg(message, ds.rgmsg);
-                break;
-            case "/rg@MBFCP_Bot":
-                sendMsg(message, ds.rgmsg);
-                break;
-//-------------------------------------------
-            case "/faq":
-                sendMsg(message, ds.faqmsg);
-                break;
-            case "/faq@MBFCP_Bot":
-                sendMsg(message, ds.faqmsg);
-                break;
-//-------------------------------------------
-            case "/sd":
-                sendMsg(message, ds.setgdmsg);
-                break;
-            case "/sd@MBFCP_Bot":
-                sendMsg(message, ds.setgdmsg);
-                break;
-//-------------------------------------------
+            case 44: {
+                String syntaxis = command.syntax;
+                String[] syntax = syntaxis.split(", ");
+                //Далее загрузка из файла
+                //Запись в файл
+                //Сохранение
+                //Сообщение
+            }
+            case 55:
+            case 66:
+            case 77:
+
             default: {
+                /*
                 String[] comType = text.split(" ");
 
                 if (comType[0].equals("/rng") || comType[0].equals("/rng@MBFCP_Bot")) {
@@ -198,6 +209,7 @@ public class TelegramBot extends TelegramLongPollingBot {
                     if (groupData.containsKey(message.getChatId())) sendMsg(message, groupData.get(message.getChatId()));
                     else sendMsg(message, "Empty");
                 }
+                */
 
                 break;
             }

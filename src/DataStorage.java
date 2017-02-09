@@ -1,14 +1,29 @@
+
 import java.io.*;
 import java.util.Map;
 
 /**
  * Created by Makentoshe on 08.02.2017.
  */
-public class DataStorage {
+
+class GenObject<T> {
+    T object;
+    GenObject(T object){
+        this.object = object;
+    }
+
+    T getObject() { return object;}
+
+    void setObject(T object) {
+        this.object = object;
+    }
+}
+
+class DataStorage {
 
     /**
-     * Декодирует из бинарного кода.
-     * @return Загруженные данные из файла.
+     * Decoding from binary code.
+     * @return downloaded from a data file.
      */
     Map<String, String> getGroupInfoFromFile() {
         try{
@@ -23,8 +38,8 @@ public class DataStorage {
     }
 
     /**
-     * Кодирует в бинарный код
-     * Сохраняет @param groupInfo в файл data/GroupInfo.shuvi.
+     * Coding to binary code.
+     * Saving @param groupInfo into data file.
      */
     void setGroupInfoToFile(Map<String, String> groupInfo) {
         try {
@@ -39,14 +54,14 @@ public class DataStorage {
     }
 
     /**
-     * Добавляет данные @param groupname и @param linq к @param groupInfo
+     * Adding data(@param groupname and @param linq) to @param groupInfo
      */
     void setGroupInfo(Map<String, String> groupInfo, String groupname, String linq) {
         groupInfo.put(groupname, linq);
     }
 
     /**
-     * @return загруженные из файла данные в строке.
+     * @return downloaded from a data file in string.
      */
     String getGroupInfo() {
         String data = "";
@@ -60,13 +75,13 @@ public class DataStorage {
     }
 
     /**
-     * Ищет группу в списке и удаляет её.
-     * @param param - параметр, по которому ищется группа в списке @param groupInfo
-     * @return название группы, или null, если таковое не найдено
+     * Finding group in list and remove it.
+     * @param param - parameter for which group is searching in list @param groupInfo
+     * @return group name or null if not founded.
      */
     String removeGroupInfo(Map<String, String> groupInfo, String param) {
         String out;
-        //Удаление по ключу
+
         if (groupInfo.containsKey(param)) {
 
             out = param;
@@ -74,7 +89,7 @@ public class DataStorage {
 
             return out;
         }
-        //Удаление по значению
+
         for (Map.Entry entry : groupInfo.entrySet()) {
 
             if (entry.getValue().equals(param)) {
@@ -88,6 +103,9 @@ public class DataStorage {
         return null;
     }
 
+    /**
+     * @return downloaded HashMap from file.
+     */
     Map<Long, String> getGroupDataFromFile(){
         try{
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/GroupData.shuvi"));
@@ -100,6 +118,9 @@ public class DataStorage {
         return null;
     }
 
+    /**
+     * @param groupData - HashMap, which will be saving in file.
+     */
     void setGroupDataToFile(Map<Long, String> groupData) {
         try {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("H:/Projects/Java/Shuvi/data/GroupData.shuvi"));
@@ -108,6 +129,23 @@ public class DataStorage {
             oos.flush();
             oos.close();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Read and decode some data from the file
+     * @param path - path to file
+     * @param go - object, where the data will be written
+     *           Example:
+     *           GenObject<InfoGroupMap> igmObj = new GenObject<>(new InfoGroupMap(new HashMap<>()));
+     *           downloadFile("H:/Projects/Java/Shuvi/data/GroupInfo.shuvi", igmObj);
+     */
+    private static void downloadFile(String path, GenObject go) {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
+            go.setObject(ois.readObject());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
