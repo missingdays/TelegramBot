@@ -11,11 +11,13 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import java.io.*;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
 class Command {
-    String text;
+    private String text;
     private String botName;
     String syntax;
 
@@ -38,14 +40,29 @@ class Command {
         for (int i = 0; i<avaliableCommands.length; i++){
             if (cmd[0].equals(avaliableCommands[i]) || cmd[0].equals(avaliableCommands[i]+botName)){
                 if (cmd.length > 1) {
+                    //removing command word
                     syntax = text.replace(cmd[0] + " ","");
-                    System.out.println(syntax);
                     return (i+1)*10 + (i+1);
                 }
                 return i+1;
             }
         }
         return 0;
+    }
+}
+
+/**
+ * Serializable class for saving data in binary code.
+ */
+class StaticData implements Serializable {
+    private List list = new LinkedList();
+
+    StaticData(List list) {
+        this.list = list;
+    }
+
+    public List getList() {
+        return list;
     }
 }
 
@@ -85,6 +102,10 @@ class BotData implements Serializable {
 }
 
 public class TelegramBot extends TelegramLongPollingBot {
+    private String groupInfoPath = "data/GroupInfo.shuvi";
+    private String groupDataPath = "data/GroupData.shuvi";
+    private String botDataPath = "data/BotData.shuvi";
+    private String staticDataPath = "data/StaticData.shv";
 
     private static Logger log = Logger.getLogger(TelegramBot.class.getName());
     private DataStorage ds = new DataStorage();
@@ -93,6 +114,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         log.info("System start");
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+
         try {
             log.info("Trying to register bot...");
             telegramBotsApi.registerBot(new TelegramBot());
@@ -106,26 +128,24 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Override
     public String getBotUsername() {
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/BotData.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(botDataPath));
             BotData token = (BotData)ois.readObject();
             return token.username;
         } catch (Exception e){
             e.printStackTrace();
         }
-        //wtf?
         return null;
     }
 
     @Override
     public String getBotToken() {
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/BotData.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(botDataPath));
             BotData bd = (BotData)ois.readObject();
             return bd.token;
         } catch (Exception e){
             e.printStackTrace();
         }
-        //wtf?
         return null;
     }
 
@@ -133,86 +153,54 @@ public class TelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         Command command;
-        if (message != null && message.hasText()) command = new Command(message.getText(), getBotUsername()); //text = message.getText();
+        if (message != null && message.hasText()) command = new Command(message.getText(), getBotUsername());
         else return;
 
         switch (command.textHandler()) {
-            case 1: sendMsg(message, ds.hlpmsg); break;
+            case 1: sendMsg(message, getStaticData(ds, staticDataPath, 0));break; //help
             case 2: sendMsg(message, ds.getGroupInfo()); break;
-            case 3: sendMsg(message, ds.faqmsg); break;
-            case 4: sendMsg(message, ds.rngmsg); break;
-            case 5: sendMsg(message, ds.rgmsg); break;
-            case 6: sendMsg(message, ds.setgdmsg); break;
+            case 3: sendMsg(message, getStaticData(ds, staticDataPath, 1));break; //faq
+            case 4: sendMsg(message, getStaticData(ds, staticDataPath, 2));break; //rng
+            case 5: sendMsg(message, getStaticData(ds, staticDataPath, 3));break; //rg
+            case 6: sendMsg(message, getStaticData(ds, staticDataPath, 4));break; //sd
 
             case 44: {
-                String syntaxis = command.syntax;
-                String[] syntax = syntaxis.split(", ");
-                //Далее загрузка из файла
-                //Запись в файл
-                //Сохранение
-                //Сообщение
-            }
-            case 55:
-            case 66:
-            case 77:
-
-            default: {
-                /*
-                String[] comType = text.split(" ");
-
-                if (comType[0].equals("/rng") || comType[0].equals("/rng@MBFCP_Bot")) {
-                    //удаление вызова команды
-                    String syntaxis = text.replaceAll(comType[0] + " ", "");
-                    //разделение параметров запятой
-                    String[] parameters = syntaxis.split(", ");
-                    //Загрузка данных
-                    infoGroup = ds.getGroupInfoFromFile();
-                    //Процесс записи
-                    ds.setGroupInfo(infoGroup, parameters[0], parameters[1]);
-                    //Запись
-                    ds.setGroupInfoToFile(infoGroup);
-                    log.info("New group was register: " + parameters[0]);
-                    sendMsg(message, "Была создана группа " + parameters[0] + '.');
-                }
-
-                if (comType[0].equals("/rg") || comType[0].equals("/rg@MBFCP_Bot")) {
-                    //удаление вызова команды
-                    String param = text.replaceAll(comType[0] + " ", "");
-                    //Загрузка данных
-                    infoGroup = ds.getGroupInfoFromFile();
-                    //удаление группы
-                    String groupname = ds.removeGroupInfo(infoGroup, param);
-                    //Запись
-                    ds.setGroupInfoToFile(infoGroup);
-
-                    if (groupname != null) {
-                        log.info("Group " + groupname + " was remove");
-                        sendMsg(message, "Группа " + groupname + " была удалена из списка.");
-                    } else {
-                        log.info("Group not found.");
-                        sendMsg(message, "Group not found.");
-                    }
-                }
-
-                if (comType[0].equals("/sd") || comType[0].equals("/sd@MBFCP_Bot") ) {
-                    //Удаление вызова команды
-                    String data = text.replaceAll(comType[0] + " ", "");
-                    //Запись
-                    groupData.put(message.getChatId(), data);
-                    //Сохранение
-                    ds.setGroupDataToFile(groupData);
-                    sendMsg(message, "Done.");
-                }
-
-                if (comType[0].equals("/gd") || comType[0].equals("/gd@MBFCP_Bot")) {
-                    groupData = ds.getGroupDataFromFile();
-                    if (groupData.containsKey(message.getChatId())) sendMsg(message, groupData.get(message.getChatId()));
-                    else sendMsg(message, "Empty");
-                }
-                */
-
+                String[] syntax = command.syntax.split("; ");
+                GenObject<InfoGroupMap> igmObj = ds.downloadFile(groupInfoPath, new GenObject<>(new InfoGroupMap(new HashMap<>())));
+                igmObj.getObject().infoGroup.put(syntax[0], syntax[1]);
+                ds.uploadFile(groupInfoPath, igmObj);
+                log.info("New group was register: " + syntax[0] + "\nLink: " + syntax[1]);
+                sendMsg(message, "Group with name \"" + syntax[0] + "\" was created.");
                 break;
             }
+            case 55: {
+                GenObject<InfoGroupMap> igmObj = ds.downloadFile(groupInfoPath, new GenObject<>(new InfoGroupMap(new HashMap<>())));
+                String groupname = ds.removeGroupInfo(igmObj.getObject().infoGroup, command.syntax);
+                ds.uploadFile(groupInfoPath, igmObj);
+                if (groupname != null) {
+                    log.info("Group " + groupname + " was remove");
+                    sendMsg(message, "Group " + groupname + " was remove from list.");
+                } else {
+                    log.info("Group not found");
+                    sendMsg(message, "Group not found.");
+                }
+                break;
+            }
+            case 66: {
+                GenObject<GroupData> gdObj = ds.downloadFile(groupDataPath, new GenObject<>(new GroupData(new HashMap<>())));
+                gdObj.getObject().groupData.put(message.getChatId(), command.syntax);
+                ds.uploadFile(groupDataPath, gdObj);
+                log.info("Data in group " + message.getChatId() + " was update");
+                sendMsg(message, "Done.");
+                break;
+            }
+            case 7: {
+                GenObject<GroupData> gdObj = ds.downloadFile(groupDataPath, new GenObject<>(new GroupData(new HashMap<>())));
+                if (gdObj.getObject().groupData.containsKey(message.getChatId()))
+                    sendMsg(message, gdObj.getObject().groupData.get(message.getChatId()));
+                else sendMsg(message, "Empty.");
+            }
+            default: break;
         }
     }
 
@@ -227,5 +215,10 @@ public class TelegramBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    private String getStaticData(DataStorage dataStorage, String path, int index){
+        GenObject<StaticData> obj = dataStorage.downloadFile(path, new GenObject<>(new StaticData(new LinkedList())));
+        return obj.getObject().getList().get(index).toString();
     }
 }
