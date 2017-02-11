@@ -1,10 +1,9 @@
-
-import java.io.*;
-import java.util.Map;
-
 /**
  * Created by Makentoshe on 08.02.2017.
  */
+
+import java.io.*;
+import java.util.Map;
 
 class GenObject<T> {
     T object;
@@ -25,9 +24,9 @@ class DataStorage {
      * Decoding from binary code.
      * @return downloaded from a data file.
      */
-    Map<String, String> getGroupInfoFromFile() {
+    private Map<String, String> getGroupInfoFromFile(String path) {
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("H:/Projects/Java/Shuvi/data/GroupInfo.shuvi"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
             InfoGroupMap igm = (InfoGroupMap)ois.readObject();
             return igm.infoGroup;
         } catch (Exception e){
@@ -40,10 +39,10 @@ class DataStorage {
     /**
      * @return downloaded from a data file in string.
      */
-    String getGroupInfo() {
+    String getGroupInfo(String pathToFile) {
         String data = "";
 
-        for (Map.Entry<String, String> entry : getGroupInfoFromFile().entrySet()) {
+        for (Map.Entry<String, String> entry : getGroupInfoFromFile(pathToFile).entrySet()) {
             data += entry.getKey().toString() + " - " + entry.getValue().toString() + "\n\n";
         }
 

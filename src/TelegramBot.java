@@ -10,10 +10,7 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import java.io.*;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 class Command {
@@ -102,23 +99,23 @@ class BotData implements Serializable {
 }
 
 public class TelegramBot extends TelegramLongPollingBot {
-    private String groupInfoPath = "data/GroupInfo.shuvi";
-    private String groupDataPath = "data/GroupData.shuvi";
-    private String botDataPath = "data/BotData.shuvi";
+    private String groupInfoPath = "data/GroupInfo.shv";
+    private String groupDataPath = "data/GroupData.shv";
+    private String botDataPath = "data/BotDatas.shv";
     private String staticDataPath = "data/StaticData.shv";
 
     private static Logger log = Logger.getLogger(TelegramBot.class.getName());
-    private DataStorage ds = new DataStorage();
+    private static DataStorage ds = new DataStorage();
 
     public static void main(String[] args) {
         log.info("System start");
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-
         try {
             log.info("Trying to register bot...");
             telegramBotsApi.registerBot(new TelegramBot());
             log.info("Success");
+
         } catch (TelegramApiException e) {
             log.info("Fail");
             e.printStackTrace();
@@ -158,7 +155,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         switch (command.textHandler()) {
             case 1: sendMsg(message, getStaticData(ds, staticDataPath, 0));break; //help
-            case 2: sendMsg(message, ds.getGroupInfo()); break;
+            case 2: sendMsg(message, ds.getGroupInfo(groupInfoPath)); break;
             case 3: sendMsg(message, getStaticData(ds, staticDataPath, 1));break; //faq
             case 4: sendMsg(message, getStaticData(ds, staticDataPath, 2));break; //rng
             case 5: sendMsg(message, getStaticData(ds, staticDataPath, 3));break; //rg

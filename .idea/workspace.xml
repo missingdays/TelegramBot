@@ -7,15 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b8a34a2-7e36-41f4-ae98-1f3d01256643" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/BotData.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/BotData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/Command.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/Command.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/DataStorage.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/DataStorage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/GroupData.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/GroupData.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/InfoGroupMap.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/InfoGroupMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/TelegramBot.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/TelegramBot.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/BotData.shuvi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GroupData.shuvi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/GroupInfo.shuvi" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/GroupData.shuvi" afterPath="$PROJECT_DIR$/data/GroupData.shuvi" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/GroupInfo.shuvi" afterPath="$PROJECT_DIR$/data/GroupInfo.shuvi" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataStorage.java" afterPath="$PROJECT_DIR$/src/DataStorage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TelegramBot.java" afterPath="$PROJECT_DIR$/src/TelegramBot.java" />
     </list>
@@ -38,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TelegramBot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TelegramBot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TelegramBot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="283">
+              <caret line="221" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding>
                 <element signature="class#Command#0" expanded="false" />
                 <element signature="method#Command#0;class#Command#0" expanded="false" />
@@ -69,15 +64,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataStorage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataStorage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="82" column="54" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
+            <state relative-caret-position="119">
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#GenObject#0" expanded="false" />
                 <element signature="class#GenObject#0" expanded="false" />
+                <element signature="class#DataStorage#0" expanded="false" />
                 <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
                 <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
                 <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
@@ -117,8 +111,8 @@
         <option value="$PROJECT_DIR$/../TelegramBot-master/src/Telegram/Shuvi_Telegram.java" />
         <option value="$PROJECT_DIR$/src/Tryer.java" />
         <option value="$PROJECT_DIR$/data/StaticData.json" />
-        <option value="$PROJECT_DIR$/src/DataStorage.java" />
         <option value="$PROJECT_DIR$/src/TelegramBot.java" />
+        <option value="$PROJECT_DIR$/src/DataStorage.java" />
       </list>
     </option>
   </component>
@@ -153,9 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,6 +195,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -540,14 +534,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18897638" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36692914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -559,6 +552,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -583,6 +577,56 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/TelegramBot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="class#Command#0" expanded="false" />
+            <element signature="method#Command#0;class#Command#0" expanded="false" />
+            <element signature="docComment;method#textHandler#0;class#Command#0" expanded="false" />
+            <element signature="method#textHandler#0;class#Command#0" expanded="false" />
+            <element signature="docComment;class#StaticData#0" expanded="false" />
+            <element signature="class#StaticData#0" expanded="false" />
+            <element signature="docComment;class#InfoGroupMap#0" expanded="false" />
+            <element signature="class#InfoGroupMap#0" expanded="false" />
+            <element signature="docComment;class#GroupData#0" expanded="false" />
+            <element signature="class#GroupData#0" expanded="false" />
+            <element signature="docComment;class#BotData#0" expanded="false" />
+            <element signature="class#BotData#0" expanded="false" />
+            <element signature="method#BotData#0;class#BotData#0" expanded="false" />
+            <element signature="class#TelegramBot#0" expanded="false" />
+            <element signature="method#main#0;class#TelegramBot#0" expanded="false" />
+            <element signature="method#getBotUsername#0;class#TelegramBot#0" expanded="false" />
+            <element signature="method#getBotToken#0;class#TelegramBot#0" expanded="false" />
+            <element signature="method#onUpdateReceived#0;class#TelegramBot#0" expanded="false" />
+            <element signature="method#sendMsg#0;class#TelegramBot#0" expanded="false" />
+            <element signature="method#getStaticData#0;class#TelegramBot#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="class#GenObject#0" expanded="false" />
+            <element signature="class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#downloadFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#downloadFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#uploadFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#uploadFile#0;class#DataStorage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TelegramBot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -617,9 +661,8 @@
         <state relative-caret-position="340">
           <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#GenObject#0" expanded="false" />
             <element signature="class#GenObject#0" expanded="false" />
+            <element signature="class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
@@ -634,14 +677,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StaticData">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StaticData" />
     <entry file="file://$PROJECT_DIR$/src/TelegramBot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2584">
@@ -676,9 +712,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#GenObject#0" expanded="false" />
             <element signature="class#GenObject#0" expanded="false" />
+            <element signature="class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
@@ -756,9 +791,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#GenObject#0" expanded="false" />
             <element signature="class#GenObject#0" expanded="false" />
+            <element signature="class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
@@ -807,9 +841,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#GenObject#0" expanded="false" />
             <element signature="class#GenObject#0" expanded="false" />
+            <element signature="class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
             <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
@@ -856,7 +889,18 @@
     <entry file="file://$PROJECT_DIR$/../TelegramBot-master/src/Telegram/Shuvi_Telegram.java" />
     <entry file="file://$PROJECT_DIR$/../TelegramBot-master/src/Telegram/DataStorage.java" />
     <entry file="file://$PROJECT_DIR$/src/Tryer.java" />
-    <entry file="file://$PROJECT_DIR$/src/StaticData">
+    <entry file="file://$PROJECT_DIR$/src/StaticData" />
+    <entry file="file://$PROJECT_DIR$/src/StaticData.object" />
+    <entry file="file://$PROJECT_DIR$/data/StaticData" />
+    <entry file="file://$PROJECT_DIR$/data/StaticData.json" />
+    <entry file="file://$PROJECT_DIR$/data/BotData.shuvi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/StaticData.shv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -864,34 +908,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StaticData.object">
+    <entry file="file://$PROJECT_DIR$/src/DataStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/StaticData">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/StaticData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="119">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <element signature="class#GenObject#0" expanded="false" />
+            <element signature="class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#downloadFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#downloadFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="docComment;method#uploadFile#0;class#DataStorage#0" expanded="false" />
+            <element signature="method#uploadFile#0;class#DataStorage#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TelegramBot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="283">
+          <caret line="221" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
           <folding>
             <element signature="class#Command#0" expanded="false" />
             <element signature="method#Command#0;class#Command#0" expanded="false" />
@@ -913,44 +954,6 @@
             <element signature="method#onUpdateReceived#0;class#TelegramBot#0" expanded="false" />
             <element signature="method#sendMsg#0;class#TelegramBot#0" expanded="false" />
             <element signature="method#getStaticData#0;class#TelegramBot#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/BotData.shuvi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/StaticData.shv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="82" column="54" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#GenObject#0" expanded="false" />
-            <element signature="class#GenObject#0" expanded="false" />
-            <element signature="docComment;method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
-            <element signature="method#getGroupInfoFromFile#0;class#DataStorage#0" expanded="false" />
-            <element signature="docComment;method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
-            <element signature="method#getGroupInfo#0;class#DataStorage#0" expanded="false" />
-            <element signature="docComment;method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
-            <element signature="method#removeGroupInfo#0;class#DataStorage#0" expanded="false" />
-            <element signature="docComment;method#downloadFile#0;class#DataStorage#0" expanded="false" />
-            <element signature="method#downloadFile#0;class#DataStorage#0" expanded="false" />
-            <element signature="docComment;method#uploadFile#0;class#DataStorage#0" expanded="false" />
-            <element signature="method#uploadFile#0;class#DataStorage#0" expanded="false" />
           </folding>
         </state>
       </provider>
