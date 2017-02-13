@@ -163,16 +163,16 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             case 44: {
                 String[] syntax = command.syntax.split("; ");
-                GenObject<InfoGroupMap> igmObj = ds.downloadFile(groupInfoPath, new GenObject<>(new InfoGroupMap(new HashMap<>())));
-                igmObj.getObject().infoGroup.put(syntax[0], syntax[1]);
+                InfoGroupMap igmObj = (InfoGroupMap) ds.downloadFile(groupInfoPath, new InfoGroupMap(new HashMap<>()));
+                igmObj.infoGroup.put(syntax[0], syntax[1]);
                 ds.uploadFile(groupInfoPath, igmObj);
                 log.info("New group was register: " + syntax[0] + "\nLink: " + syntax[1]);
                 sendMsg(message, "Group with name \"" + syntax[0] + "\" was created.");
                 break;
             }
             case 55: {
-                GenObject<InfoGroupMap> igmObj = ds.downloadFile(groupInfoPath, new GenObject<>(new InfoGroupMap(new HashMap<>())));
-                String groupname = ds.removeGroupInfo(igmObj.getObject().infoGroup, command.syntax);
+                InfoGroupMap igmObj = (InfoGroupMap) ds.downloadFile(groupInfoPath, new InfoGroupMap(new HashMap<>()));
+                String groupname = ds.removeGroupInfo(igmObj.infoGroup, command.syntax);
                 ds.uploadFile(groupInfoPath, igmObj);
                 if (groupname != null) {
                     log.info("Group " + groupname + " was remove");
@@ -184,17 +184,17 @@ public class TelegramBot extends TelegramLongPollingBot {
                 break;
             }
             case 66: {
-                GenObject<GroupData> gdObj = ds.downloadFile(groupDataPath, new GenObject<>(new GroupData(new HashMap<>())));
-                gdObj.getObject().groupData.put(message.getChatId(), command.syntax);
+                GroupData gdObj = (GroupData) ds.downloadFile(groupDataPath, new GroupData(new HashMap<>()));
+                gdObj.groupData.put(message.getChatId(), command.syntax);
                 ds.uploadFile(groupDataPath, gdObj);
                 log.info("Data in group " + message.getChatId() + " was update");
                 sendMsg(message, "Done.");
                 break;
             }
             case 7: {
-                GenObject<GroupData> gdObj = ds.downloadFile(groupDataPath, new GenObject<>(new GroupData(new HashMap<>())));
-                if (gdObj.getObject().groupData.containsKey(message.getChatId()))
-                    sendMsg(message, gdObj.getObject().groupData.get(message.getChatId()));
+                GroupData gdObj = (GroupData) ds.downloadFile(groupDataPath, new GroupData(new HashMap<>()));
+                if (gdObj.groupData.containsKey(message.getChatId()))
+                    sendMsg(message, gdObj.groupData.get(message.getChatId()));
                 else sendMsg(message, "Empty.");
             }
             default: break;
@@ -215,7 +215,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     private String getStaticData(DataStorage dataStorage, String path, int index){
-        GenObject<StaticData> obj = dataStorage.downloadFile(path, new GenObject<>(new StaticData(new LinkedList())));
-        return obj.getObject().getList().get(index).toString();
+        StaticData obj = (StaticData) dataStorage.downloadFile(path, new StaticData(new LinkedList()));
+        return obj.getList().get(index).toString();
     }
 }

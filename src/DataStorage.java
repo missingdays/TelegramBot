@@ -5,18 +5,6 @@
 import java.io.*;
 import java.util.Map;
 
-class GenObject<T> {
-    T object;
-    GenObject(T object){
-        this.object = object;
-    }
-
-    T getObject() { return object;}
-
-    void setObject(T object) {
-        this.object = object;
-    }
-}
 
 class DataStorage {
 
@@ -79,10 +67,10 @@ class DataStorage {
      * @param path - path to file
      * @param go - special object, where the data will be written
      */
-    GenObject downloadFile(String path, GenObject go) {
+    Object downloadFile(String path, Object go) {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
-            go.setObject(ois.readObject());
+            return ois.readObject();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,10 +81,10 @@ class DataStorage {
      * @param path - path to file
      * @param go - special object, which data will be save
      */
-    void uploadFile(String path, GenObject go){
+    void uploadFile(String path, Object go){
         try {
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
-            oos.writeObject(go.getObject());
+            oos.writeObject(go);
             oos.flush();
             oos.close();
         } catch (Exception e){
